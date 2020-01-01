@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LoginTestWeb.Models.Employees>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>Name</h4>
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+                Photopath
+            </th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhotoPath)
+            </td>          
+            
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<LoginTestWeb.Models.Employees>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+<p>
+
+    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#employeeModal">Add Employee</a>
+    <div class="modal fade" id="employeeModal">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h4>Add Employee</h4>
+
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("CreatePartial", new Employees())
+                </div>
+            </div>
+        </div>
+    </div>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().EmpSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().PhotoPath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Dept)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpSalary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhotoPath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dept.DeptId)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="employee">
+
+</div>
+<script type="text/javascript">
+    
+</script>
+
